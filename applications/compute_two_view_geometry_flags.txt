@@ -1,0 +1,46 @@
+############### Input/Output ###############
+# Input/output files.
+# Set these if a matches file is not present. Images should be a filepath with a
+# wildcard e.g., /home/my_username/my_images/*.jpg
+--images=/Users/LeonMing/Downloads/ReconstructionTesting/herzjesu_dense/urd/*.png
+--output_matches_file=/Users/LeonMing/Downloads/ReconstructionTesting/Matches/herzjesu_dense
+--output_EGs_file=/Users/LeonMing/Downloads/ReconstructionTesting/Matches/herzjesu_dense_EGs
+
+# The calibration file indicates possibly known calibration e.g, from EXIF or
+# explicit calibration. Theia attempts to extract EXIF focal lengths if calibration
+# is not supplied for a given image.
+--calibration_file=
+
+############### Multithreading ###############
+# Set to the number of threads you want to use.
+--num_threads=16
+
+############### Feature Extraction ###############
+--descriptor=SIFT
+--feature_density=NORMAL
+
+############### Matching Options ###############
+# Perform matching out-of-core. If set to true, the matching_working_directory
+# must be set to a valid, writable directory (the directory will be created if
+# it does not exits) Set to false to perform all-in-memory matching.
+--match_out_of_core=true
+
+# During feature matching, features are saved to disk so that out-of-core
+# matching may be performed. This directory specifies which directory those
+# features should be saved to.
+--matching_working_directory=/Users/LeonMing/Downloads/ReconstructionTesting/Features
+
+# During feature matching we utilize an LRU cache for out-of-core matching. The size
+# of that cache (in terms of number of images) is controlled by this parameter. The
+# higher this number the more memory is required.
+--matching_max_num_images_in_cache=128
+
+--matching_strategy=CASCADE_HASHING
+--lowes_ratio=0.75
+--min_num_inliers_for_valid_match=30
+--max_sampson_error_for_verified_match=4.0
+--bundle_adjust_two_view_geometry=true
+--keep_only_symmetric_matches=true
+
+--logtostderr
+—v=2
