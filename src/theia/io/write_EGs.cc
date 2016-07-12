@@ -41,7 +41,7 @@ bool WriteEGs(
 
         // Declare empty rotation matrix to be output, then initialize by converting
         // angle axis (Vector3d) to rotation matrix (Matrix3d)
-        double rotation_matrix[9];
+        Eigen::Matrix3d rotation_matrix;
         ceres::AngleAxisToRotationMatrix(
               match.twoview_info.rotation_2.data(),
               ceres::RowMajorAdapter3x3(rotation_matrix.data()));
