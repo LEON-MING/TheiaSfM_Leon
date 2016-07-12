@@ -80,6 +80,7 @@ class GlobalReconstructionEstimator : public ReconstructionEstimator {
  private:
   bool FilterInitialViewGraph();
   void CalibrateCameras();
+  void PrefilterRotations();
   bool EstimateGlobalRotations();
   void FilterRotations();
   void OptimizePairwiseTranslations();

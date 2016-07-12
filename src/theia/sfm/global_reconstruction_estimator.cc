@@ -300,6 +300,20 @@ bool GlobalReconstructionEstimator::FilterInitialViewGraph() {
 void GlobalReconstructionEstimator::CalibrateCameras() {
   SetCameraIntrinsicsFromPriors(reconstruction_);
 }
+    
+/*
+void GlobalReconstructionEstimator::PreFilterRotations() {
+  // Prefilter view pairs based on cycling through the relative rotations
+  PreFilterViewPairs(view_graph_);
+
+  // Remove any disconnected views from the estimation.
+  const std::unordered_set<ViewId> removed_views =
+      RemoveDisconnectedViewPairs(view_graph_);
+  for (const ViewId removed_view : removed_views) {
+    orientations_.erase(removed_view);
+  }
+}
+*/
 
 bool GlobalReconstructionEstimator::EstimateGlobalRotations() {
   const auto& view_pairs = view_graph_->GetAllEdges();
