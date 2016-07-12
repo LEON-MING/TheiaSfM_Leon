@@ -77,7 +77,7 @@ std::unordered_set<ViewId> RemoveDisconnectedViewPairs(ViewGraph* view_graph) {
     }
 
     // NOTE: The connected component will contain the root id as well, so we do
-    // not explicity have to remove connected_component.first since it will
+    // not explicitly have to remove connected_component.first since it will
     // exist in connected_components.second
     for (const ViewId view_id2 : connected_component.second) {
       view_graph->RemoveView(view_id2);
