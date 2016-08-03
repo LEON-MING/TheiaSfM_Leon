@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc ../../lib/libvisual_sfm.a  CMakeFiles/visual_sfm.dir/FeaturePoints.cpp.o CMakeFiles/visual_sfm.dir/MatchFile.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib ../../lib/libvisual_sfm.a

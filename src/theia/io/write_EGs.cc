@@ -57,10 +57,12 @@ bool WriteEGs(
         // Write view_id for image1 and image2
         EGs_writer << view1_id << " " << view2_id << " ";
 
+
         // Write 3-by-3 rotation matrix row-major
         for (int i = 0; i < rotation_matrix.size(); i++) {
             EGs_writer << *(rotation_matrix.data() + i) << " ";
         }
+
 /*
         // Write 3-by-3 rotation matrix column-major
         // Just to demonstrate difference between row and column major
@@ -68,15 +70,17 @@ bool WriteEGs(
             EGs_writer << *(rotation_matrix2.data() + i) << " ";
         }
 */
+
+
         // Write relative translation 3-vector
-        // Will comment out because not needed as of now
-/*
-        for (int i = 0; i < position.size(); i++) {
-            EGs_writer << *(match.twoview_info.position_2.data() + i) << " ";
+        for (int i = 0; i < 3; i++) {
+            EGs_writer << match.twoview_info.position_2[i] << " ";
         }
-*/
+
         // Next line
         EGs_writer << "\n";
+
+
     }
     	return true;
 }

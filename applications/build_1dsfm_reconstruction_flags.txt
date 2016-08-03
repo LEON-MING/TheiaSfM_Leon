@@ -2,19 +2,19 @@
 # Input/output files.
 # Set these if a matches file is not present. Images should be a filepath with a
 # wildcard e.g., /home/my_username/my_images/*.jpg
---1dsfm_dataset_directory=/Users/LeonMing/Downloads/ReconstructionTesting/datasets/Tower_of_London
---output_reconstruction=/Users/LeonMing/Downloads/ReconstructionTesting/Reconstructions/Tower_of_London
+--1dsfm_dataset_directory=/Users/LeonMing/Downloads/ReconstructionTesting/1DSfm_Datasets/Gendarmenmarkt
+--output_reconstruction=/Users/LeonMing/Downloads/ReconstructionTesting/Reconstructions/Gendarmenmarkt/Gendarmenmarkt_fixed
 
 ############### Multithreading ###############
 # Set to the number of threads you want to use.
---num_threads=8
+--num_threads=32
 
 ############### General SfM Options ###############
 --reconstruction_estimator=GLOBAL
 --min_num_inliers_for_valid_match=30
 --min_track_length=2
 --max_track_length=50
---reconstruct_largest_connected_component=false
+--reconstruct_largest_connected_component=true
 # If set to true, only views with known calibration are reconstructed.
 --only_calibrated_views=false
 
@@ -22,6 +22,7 @@
 --global_position_estimator=LEAST_UNSQUARED_DEVIATION
 --global_rotation_estimator=ROBUST_L1L2
 --post_rotation_filtering_degrees=15.0
+--prefilter_rotations=true
 
 # This refinement is very unstable for rotation-only motions so
 # it is advised that this is set to false for these motions.
@@ -39,7 +40,7 @@
 --position_estimation_min_num_tracks_per_view=0
 --position_estimation_robust_loss_width=0.1
 
-# After estimating camera poses, we perform trianguation, then BA,
+# After estimating camera poses, we perform triangulation, then BA,
 # then filter out bad points. This controls how many times we repeat
 # this process.
 --num_retriangulation_iterations=1
@@ -54,7 +55,7 @@
 # Set this parameter to a value other than NONE if you want to utilize a robust
 # cost function during bundle adjustment. This can increase robustness to outliers
 # during the optimization.
---bundle_adjustment_robust_loss_function=HUBER
+--bundle_adjustment_robust_loss_function=NONE
 
 # Set this value to the determine the reprojection error in pixels at which
 # robustness begins (if a robust cost function is being used).

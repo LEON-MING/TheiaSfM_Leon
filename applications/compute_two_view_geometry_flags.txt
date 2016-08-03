@@ -2,9 +2,9 @@
 # Input/output files.
 # Set these if a matches file is not present. Images should be a filepath with a
 # wildcard e.g., /home/my_username/my_images/*.jpg
---images=/Users/LeonMing/Downloads/ReconstructionTesting/herzjesu_dense/urd/*.png
---output_matches_file=/Users/LeonMing/Downloads/ReconstructionTesting/Matches/herzjesu_dense
---output_EGs_file=/Users/LeonMing/Downloads/ReconstructionTesting/Matches/herzjesu_dense_EGs
+--images=/Users/LeonMing/Downloads/ReconstructionTesting/Strecha_Datasets/castle_dense_large/urd/*.png
+--output_matches_file=/Users/LeonMing/Downloads/ReconstructionTesting/Matches/castle_dense_large2
+--output_EGs_file=/Users/LeonMing/Downloads/ReconstructionTesting/Matches/castle_dense_large2_EGs
 
 # The calibration file indicates possibly known calibration e.g, from EXIF or
 # explicit calibration. Theia attempts to extract EXIF focal lengths if calibration
@@ -17,7 +17,7 @@
 
 ############### Feature Extraction ###############
 --descriptor=SIFT
---feature_density=NORMAL
+--feature_density=DENSE
 
 ############### Matching Options ###############
 # Perform matching out-of-core. If set to true, the matching_working_directory

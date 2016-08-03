@@ -88,6 +88,9 @@ DEFINE_bool(refine_relative_translations_after_rotation_estimation, true,
             "Refine the relative translation estimation after computing the "
             "absolute rotations. This can help improve the accuracy of the "
             "position estimation.");
+DEFINE_bool(prefilter_rotations, true,
+            "Filter relative rotations based on loop inconsistencies prior "
+            "to estimating global rotations.");
 DEFINE_double(post_rotation_filtering_degrees, 5.0,
               "Max degrees difference in relative rotation and rotation "
               "estimates for rotation filtering.");
@@ -192,6 +195,8 @@ ReconstructionBuilderOptions SetReconstructionBuilderOptions() {
   reconstruction_estimator_options
       .rotation_filtering_max_difference_degrees =
       FLAGS_post_rotation_filtering_degrees;
+  reconstruction_estimator_options.prefilter_rotations =
+      FLAGS_prefilter_rotations;
   reconstruction_estimator_options.nonlinear_position_estimator_options
       .min_num_points_per_view =
       FLAGS_position_estimation_min_num_tracks_per_view;

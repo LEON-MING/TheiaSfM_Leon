@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/LeonMing/theiasfm_leon/libraries/easyexif/exif.cpp
+exif.h
+/Users/LeonMing/theiasfm_leon/libraries/easyexif/exif.h
+algorithm
+-
+cstdint
+-
+stdint.h
+-
+stdio.h
+-
+vector
+-
+
+/Users/LeonMing/theiasfm_leon/libraries/easyexif/exif.h
+string
+-
+

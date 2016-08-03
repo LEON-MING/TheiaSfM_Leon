@@ -154,6 +154,7 @@ set(THEIA_SRC
   sfm/view_graph/remove_disconnected_view_pairs.cc
   sfm/view_graph/triplet_extractor.cc
   sfm/view_graph/view_graph.cc
+  sfm/view_graph/prefilter_view_pairs.cc
   util/filesystem.cc
   util/random.cc
   util/stringprintf.cc
@@ -173,7 +174,8 @@ set(THEIA_LIBRARY_DEPENDENCIES
   statx
   stlplus3
   vlfeat
-  visual_sfm)
+  visual_sfm
+  lemon)
 
 set(THEIA_LIBRARY_SOURCE
   ${THEIA_SRC}

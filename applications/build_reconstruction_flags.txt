@@ -2,18 +2,19 @@
 # Input/output files.
 # Set these if a matches file is not present. Images should be a filepath with a
 # wildcard e.g., /home/my_username/my_images/*.jpg
---images=/Users/LeonMing/Downloads/ReconstructionTesting/castle_entry_dense/urd/*.png
---output_matches_file=/Users/LeonMing/Downloads/ReconstructionTesting/Matches/castle_entry_dense
+#--images=/Users/LeonMing/Downloads/ReconstructionTesting/Strecha_Datasets/castle_dense_large/urd/*.png
+
+#—output_matches_file=/Users/LeonMing/Downloads/ReconstructionTesting/Matches/castle_dense_large
+#—output_EGs_file=
 
 # If a matches file has already been created, set the filepath here. This avoids
 # having to recompute all features and matches.
---matches_file=
-
+--matches_file=/Users/LeonMing/Downloads/ReconstructionTesting/Matches/castle_dense_large
 # The calibration file indicates possibly known calibration e.g, from EXIF or
 # explicit calibration. Theia attempts to extract EXIF focal lengths if calibration
 # is not supplied for a given image.
 --calibration_file=
---output_reconstruction=/Users/LeonMing/Downloads/ReconstructionTesting/Reconstructions/castle_entry_dense
+--output_reconstruction=/Users/LeonMing/Downloads/ReconstructionTesting/Reconstructions/castle_dense_large/castle_dense_large_fixed2
 
 ############### Multithreading ###############
 # Set to the number of threads you want to use.
@@ -21,7 +22,7 @@
 
 ############### Feature Extraction ###############
 --descriptor=SIFT
---feature_density=NORMAL
+--feature_density=DENSE
 
 ############### Matching Options ###############
 # Perform matching out-of-core. If set to true, the matching_working_directory
@@ -50,7 +51,7 @@
 --reconstruction_estimator=GLOBAL
 --min_track_length=2
 --max_track_length=50
---reconstruct_largest_connected_component=false
+--reconstruct_largest_connected_component=true
 
 # Set to true if all views were captured with the same camera. If true, then a
 # single set of camera intrinsic parameters will be used for all views in the
@@ -64,6 +65,7 @@
 --global_position_estimator=LEAST_UNSQUARED_DEVIATION
 --global_rotation_estimator=ROBUST_L1L2
 --post_rotation_filtering_degrees=15.0
+--prefilter_rotations=true
 
 # This refinement is very unstable for rotation-only motions so
 # it is advised that this is set to false for these motions.
@@ -98,7 +100,7 @@
 # during the optimization.
 --bundle_adjustment_robust_loss_function=HUBER
 
-# Set this value to the determine the reprojection error in pixelst at which
+# Set this value to the determine the reprojection error in pixels at which
 # robustness begins (if a robust cost function is being used).
 --bundle_adjustment_robust_loss_width=10.0
 

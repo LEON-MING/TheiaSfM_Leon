@@ -31,3 +31,6 @@ add_subdirectory(vlfeat)
 
 # Add VisualSfM files.
 add_subdirectory(visual_sfm)
+
+# Lemon
+add_subdirectory(lemon)

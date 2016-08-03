@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc ../../lib/libstlplus3.a  CMakeFiles/stlplus3.dir/file_system.cpp.o CMakeFiles/stlplus3.dir/portability_fixes.cpp.o CMakeFiles/stlplus3.dir/wildcard.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib ../../lib/libstlplus3.a

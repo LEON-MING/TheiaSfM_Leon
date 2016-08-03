@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc lib/libakaze.a  CMakeFiles/akaze.dir/src/AKAZE.cpp.o CMakeFiles/akaze.dir/src/convolution.cpp.o CMakeFiles/akaze.dir/src/fed.cpp.o CMakeFiles/akaze.dir/src/nldiffusion_functions.cpp.o CMakeFiles/akaze.dir/src/utils.cpp.o CMakeFiles/akaze.dir/timer/timer.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib lib/libakaze.a

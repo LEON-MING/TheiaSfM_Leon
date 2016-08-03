@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/LeonMing/theiasfm_leon/libraries/flann/src/cpp/flann/ext/lz4.c
+lz4.h
+/Users/LeonMing/theiasfm_leon/libraries/flann/src/cpp/flann/ext/lz4.h
+intrin.h
+-
+stdlib.h
+-
+string.h
+-
+stdint.h
+-
+
+/Users/LeonMing/theiasfm_leon/libraries/flann/src/cpp/flann/ext/lz4.h
+
+/Users/LeonMing/theiasfm_leon/libraries/flann/src/cpp/flann/ext/lz4hc.c
+lz4hc.h
+/Users/LeonMing/theiasfm_leon/libraries/flann/src/cpp/flann/ext/lz4hc.h
+lz4.c
+/Users/LeonMing/theiasfm_leon/libraries/flann/src/cpp/flann/ext/lz4.c
+
+/Users/LeonMing/theiasfm_leon/libraries/flann/src/cpp/flann/ext/lz4hc.h
+stddef.h
+-
+

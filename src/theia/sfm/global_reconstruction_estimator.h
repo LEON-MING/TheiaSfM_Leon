@@ -43,6 +43,7 @@
 #include "theia/sfm/types.h"
 #include "theia/solvers/sample_consensus_estimator.h"
 #include "theia/util/util.h"
+#include "theia/sfm/view_graph/prefilter_view_pairs.h"
 
 namespace theia {
 
@@ -80,7 +81,7 @@ class GlobalReconstructionEstimator : public ReconstructionEstimator {
  private:
   bool FilterInitialViewGraph();
   void CalibrateCameras();
-  void PrefilterRotations();
+  bool PrefilterRotations();
   bool EstimateGlobalRotations();
   void FilterRotations();
   void OptimizePairwiseTranslations();

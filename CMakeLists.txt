@@ -148,6 +148,9 @@ else (GLOG_FOUND)
     "GLOG_LIBRARY")
 endif (GLOG_FOUND)
 
+# Lemon
+set(EMON_INCLUDE_DIRS /usr/local/include)
+
 # Ceres
 message("-- Check for Ceres")
 find_package(Ceres REQUIRED SuiteSparse)
@@ -191,7 +194,8 @@ include_directories(
   ${CERES_INCLUDE_DIRS}
   ${GFLAGS_INCLUDE_DIRS}
   ${GLOG_INCLUDE_DIRS}
-  ${SUITESPARSE_INCLUDE_DIRS})
+  ${SUITESPARSE_INCLUDE_DIRS}
+  ${EMON_INCLUDE_DIRS})
 
 # NOTE: This fix came from Ceres solver with the following comment:
 #
@@ -223,6 +227,7 @@ include_directories(
   ${flann_SOURCE_DIR}/src/cpp
   ${gtest_SOURCE_DIR}/include
   ${gtest_SOURCE_DIR}
+  ${emon_SOURCE_DIR}
   ${optimo_SOURCE_DIR}
   ${statx_SOURCE_DIR}
   ${stlplus3_SOURCE_DIR}

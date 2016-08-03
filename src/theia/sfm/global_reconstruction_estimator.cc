@@ -60,6 +60,7 @@
 #include "theia/sfm/view_graph/orientations_from_maximum_spanning_tree.h"
 #include "theia/sfm/view_graph/remove_disconnected_view_pairs.h"
 #include "theia/sfm/view_graph/view_graph.h"
+#include "theia/sfm/view_graph/prefilter_view_pairs.h"
 #include "theia/solvers/sample_consensus_estimator.h"
 #include "theia/util/random.h"
 #include "theia/util/timer.h"
@@ -147,7 +148,7 @@ ReconstructionEstimatorSummary GlobalReconstructionEstimator::Estimate(
 
   // Step 1. Filter the initial view graph and remove any bad two view
   // geometries.
-  LOG(INFO) << "Filtering the intial view graph.";
+  LOG(INFO) << "Filtering the initial view graph.";
   timer.Reset();
   if (!FilterInitialViewGraph()) {
     LOG(INFO) << "Insufficient view pairs to perform estimation.";
@@ -161,6 +162,16 @@ ReconstructionEstimatorSummary GlobalReconstructionEstimator::Estimate(
   timer.Reset();
   CalibrateCameras();
   summary.camera_intrinsics_calibration_time = timer.ElapsedTimeInSeconds();
+
+
+  // Step 2.5 Prefilter bad relative rotations
+  if (options_.prefilter_rotations) {
+	  LOG(INFO) << "Prefiltering relative rotations.";
+	  timer.Reset();
+	  PrefilterRotations();
+	  global_estimator_timings.rotation_filtering_time =
+		  timer.ElapsedTimeInSeconds();
+  }
 
   // Step 3. Estimate global rotations.
   LOG(INFO) << "Estimating the global rotations of all cameras.";
@@ -177,7 +188,7 @@ ReconstructionEstimatorSummary GlobalReconstructionEstimator::Estimate(
   LOG(INFO) << "Filtering any bad rotation estimations.";
   timer.Reset();
   FilterRotations();
-  global_estimator_timings.rotation_filtering_time =
+  global_estimator_timings.rotation_filtering_time +=
       timer.ElapsedTimeInSeconds();
 
   // Step 5. Optimize relative translations.
@@ -297,16 +308,20 @@ bool GlobalReconstructionEstimator::FilterInitialViewGraph() {
   return view_graph_->NumEdges() >= 1;
 }
 
+
 void GlobalReconstructionEstimator::CalibrateCameras() {
   SetCameraIntrinsicsFromPriors(reconstruction_);
 }
 
-/*
-void GlobalReconstructionEstimator::PrefilterRotations() {
+
+bool GlobalReconstructionEstimator::PrefilterRotations() {
   // Prefilter view pairs based on cycling through the relative rotations
   PrefilterViewPairs(view_graph_);
+  RemoveDisconnectedViewPairs(view_graph_);
+  LOG(INFO) << "Prefiltered rotations";
+  return true;
 }
-*/
+
 
 bool GlobalReconstructionEstimator::EstimateGlobalRotations() {
   const auto& view_pairs = view_graph_->GetAllEdges();

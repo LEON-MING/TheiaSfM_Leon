@@ -121,6 +121,7 @@ struct ReconstructionEstimatorOptions {
   // control the threshold at which rotations are filtered. See
   // theia/sfm/filter_view_pairs_from_orientation.h
   double rotation_filtering_max_difference_degrees = 5.0;
+  bool prefilter_rotations = true;
 
   // --------------- Position Filtering Options --------------- //
 

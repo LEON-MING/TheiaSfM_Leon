@@ -53,6 +53,10 @@ DEFINE_string(
     "future iterations as input to the reconstruction builder. Leave empty if "
     "you do not want to output matches.");
 DEFINE_string(
+    output_EGs_file, "",
+    "File to write the EGs to. Leave empty if you do not want to "
+	"output matches.");
+DEFINE_string(
     output_reconstruction, "",
     "Filename to write reconstruction to. The filename will be appended with "
     "the reconstruction number if multiple reconstructions are created.");
@@ -132,6 +136,9 @@ DEFINE_bool(refine_relative_translations_after_rotation_estimation, true,
             "Refine the relative translation estimation after computing the "
             "absolute rotations. This can help improve the accuracy of the "
             "position estimation.");
+DEFINE_bool(prefilter_rotations, true,
+            "Filter relative rotations based on loop inconsistencies prior "
+            "to estimating global rotations.");
 DEFINE_double(post_rotation_filtering_degrees, 5.0,
               "Max degrees difference in relative rotation and rotation "
               "estimates for rotation filtering.");
@@ -198,6 +205,7 @@ ReconstructionBuilderOptions SetReconstructionBuilderOptions() {
   ReconstructionBuilderOptions options;
   options.num_threads = FLAGS_num_threads;
   options.output_matches_file = FLAGS_output_matches_file;
+  options.output_EGs_file = FLAGS_output_EGs_file;
 
   options.descriptor_type = StringToDescriptorExtractorType(FLAGS_descriptor);
   options.feature_density = StringToFeatureDensity(FLAGS_feature_density);
@@ -265,6 +273,8 @@ ReconstructionBuilderOptions SetReconstructionBuilderOptions() {
   reconstruction_estimator_options
       .rotation_filtering_max_difference_degrees =
       FLAGS_post_rotation_filtering_degrees;
+  reconstruction_estimator_options.prefilter_rotations =
+      FLAGS_prefilter_rotations;
   reconstruction_estimator_options.nonlinear_position_estimator_options
       .min_num_points_per_view =
       FLAGS_position_estimation_min_num_tracks_per_view;

@@ -186,6 +186,7 @@
 #include "theia/sfm/view_graph/remove_disconnected_view_pairs.h"
 #include "theia/sfm/view_graph/triplet_extractor.h"
 #include "theia/sfm/view_graph/view_graph.h"
+#include "theia/sfm/view_graph/prefilter_view_pairs.h"
 #include "theia/solvers/arrsac.h"
 #include "theia/solvers/estimator.h"
 #include "theia/solvers/evsac.h"
