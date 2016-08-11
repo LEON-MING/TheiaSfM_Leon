@@ -9,6 +9,7 @@ set(CMAKE_IMPORT_FILE_VERSION 1)
 set_property(TARGET akaze APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(akaze PROPERTIES
   IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
+  IMPORTED_LINK_INTERFACE_LIBRARIES_RELEASE "/System/Library/Frameworks/Accelerate.framework;/System/Library/Frameworks/Accelerate.framework"
   IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libakaze.a"
   )
 

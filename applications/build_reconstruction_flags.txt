@@ -2,19 +2,19 @@
 # Input/output files.
 # Set these if a matches file is not present. Images should be a filepath with a
 # wildcard e.g., /home/my_username/my_images/*.jpg
-#--images=/Users/LeonMing/Downloads/ReconstructionTesting/Strecha_Datasets/castle_dense_large/urd/*.png
+# images=/Users/LeonMing/Downloads/ReconstructionTesting/Strecha_Datasets/castle_entry_dense/urd/*.png
 
 #—output_matches_file=/Users/LeonMing/Downloads/ReconstructionTesting/Matches/castle_dense_large
 #—output_EGs_file=
 
 # If a matches file has already been created, set the filepath here. This avoids
 # having to recompute all features and matches.
---matches_file=/Users/LeonMing/Downloads/ReconstructionTesting/Matches/castle_dense_large
+--matches_file=/Users/LeonMing/Downloads/ReconstructionTesting/Matches/herzjesu_dense_large
 # The calibration file indicates possibly known calibration e.g, from EXIF or
 # explicit calibration. Theia attempts to extract EXIF focal lengths if calibration
 # is not supplied for a given image.
---calibration_file=
---output_reconstruction=/Users/LeonMing/Downloads/ReconstructionTesting/Reconstructions/castle_dense_large/castle_dense_large_fixed2
+#—calibration_file=
+--output_reconstruction=/Users/LeonMing/Downloads/ReconstructionTesting/Reconstructions/herzjesu_dense_large/herzjesu_dense_large_fixed2
 
 ############### Multithreading ###############
 # Set to the number of threads you want to use.

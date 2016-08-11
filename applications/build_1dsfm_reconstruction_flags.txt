@@ -2,8 +2,8 @@
 # Input/output files.
 # Set these if a matches file is not present. Images should be a filepath with a
 # wildcard e.g., /home/my_username/my_images/*.jpg
---1dsfm_dataset_directory=/Users/LeonMing/Downloads/ReconstructionTesting/1DSfm_Datasets/Gendarmenmarkt
---output_reconstruction=/Users/LeonMing/Downloads/ReconstructionTesting/Reconstructions/Gendarmenmarkt/Gendarmenmarkt_fixed
+--1dsfm_dataset_directory=/Users/LeonMing/Downloads/ReconstructionTesting/1DSfm_Datasets/Ellis_Island
+--output_reconstruction=/Users/LeonMing/Downloads/ReconstructionTesting/Reconstructions/Ellis_Island
 
 ############### Multithreading ###############
 # Set to the number of threads you want to use.
@@ -22,7 +22,7 @@
 --global_position_estimator=LEAST_UNSQUARED_DEVIATION
 --global_rotation_estimator=ROBUST_L1L2
 --post_rotation_filtering_degrees=15.0
---prefilter_rotations=true
+--prefilter_rotations=false
 
 # This refinement is very unstable for rotation-only motions so
 # it is advised that this is set to false for these motions.

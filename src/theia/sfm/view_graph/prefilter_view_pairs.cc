@@ -118,7 +118,7 @@ bool PrefilterViewPairs(ViewGraph* viewGraph) {
 // Edges that we need to remove
   std::unordered_set<ViewIdPair> viewPairsToRemove;
 // Do inferences to figure out what edges to remove
-  DoInference(cycleList, errors, edge2Number, number2Edge, allUsedEdges, viewPairsToRemove);
+  DoInference(rotSigma, cycleList, errors, edge2Number, number2Edge, allUsedEdges, viewPairsToRemove);
 // Do inferences based on relative translations
   DoInference(transSigma, translationCycles, translationErrors, translationEdge2Number, number2TranslationEdge, allUsedTranslationEdges, viewPairsToRemove);
 

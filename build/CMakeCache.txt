@@ -736,8 +736,8 @@ ZLIB_LIBRARY_RELEASE:FILEPATH=/usr/lib/libz.dylib
 //Value Computed by CMake
 akaze_BINARY_DIR:STATIC=/Users/LeonMing/theiasfm_leon/build/libraries/akaze
 
-//Dependencies for target
-akaze_LIB_DEPENDS:STATIC=
+//Dependencies for the target
+akaze_LIB_DEPENDS:STATIC=general;/System/Library/Frameworks/Accelerate.framework;general;/System/Library/Frameworks/Accelerate.framework;
 
 //Value Computed by CMake
 akaze_SOURCE_DIR:STATIC=/Users/LeonMing/theiasfm_leon/libraries/akaze

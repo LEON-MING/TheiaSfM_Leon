@@ -168,7 +168,7 @@ ReconstructionEstimatorSummary GlobalReconstructionEstimator::Estimate(
   if (options_.prefilter_rotations) {
 	  LOG(INFO) << "Prefiltering relative rotations.";
 	  timer.Reset();
-	  PrefilterRotations();
+	  PrefilterPoses();
 	  global_estimator_timings.rotation_filtering_time =
 		  timer.ElapsedTimeInSeconds();
   }
@@ -314,11 +314,11 @@ void GlobalReconstructionEstimator::CalibrateCameras() {
 }
 
 
-bool GlobalReconstructionEstimator::PrefilterRotations() {
+bool GlobalReconstructionEstimator::PrefilterPoses() {
   // Prefilter view pairs based on cycling through the relative rotations
   PrefilterViewPairs(view_graph_);
   RemoveDisconnectedViewPairs(view_graph_);
-  LOG(INFO) << "Prefiltered rotations";
+  LOG(INFO) << "Prefiltered view pairs";
   return true;
 }
 
