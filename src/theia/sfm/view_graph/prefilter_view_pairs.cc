@@ -170,15 +170,11 @@ void CreateCycles(std::unordered_map<ViewIdPair, TwoViewInfo>& edges,
 				  std::unordered_set<ViewIdPair>& mst,
 				  std::vector<std::vector<ViewIdPair> >& cycleList) {
 
-	std::unordered_set<ViewIdPair> allEdges;
-	std::unordered_set<ViewIdPair> otherEdges;
+	std::unordered_set<ViewIdPair> otherEdges; // not in MST
 
-	for (auto& edge : edges) {
-		allEdges.emplace(edge.first);
-	}
-	for (ViewIdPair e : allEdges) {
-		if (mst.find(e) == mst.end()) {
-			otherEdges.insert(e);
+	for (auto& e : edges) {
+		if (mst.find(e.first) == mst.end()) {
+			otherEdges.insert(e.first);
 		}
 	}
 
