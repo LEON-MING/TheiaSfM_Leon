@@ -38,7 +38,7 @@ DEFINE_bool(prefilter_rotations, true,
             "Filter relative rotations based on loop inconsistencies prior "
             "to estimating global rotations.");
 
-I also modified SetReconstructionBuilderOptions to include those new flags, as well as modify the ReconstructionBuilderOptions struct to include the new flag values.
+I also modified SetReconstructionBuilderOptions to include those new flags, as well as the ReconstructionBuilderOptions struct to include the new flag values.
 
 
 Most important things in prefilter_view_pairs.cc are commented. Loops in the view graph are often referred to as cycles. PrefilterViewPairs essentially calls CreateChains, CreateCycles, CalculateErrors, CalculateTranslationErrors, and DoInference (twice, once for rotations and once for translations).
